@@ -1,0 +1,42 @@
+<div id="<%= dom_id post %>">
+    <div class="card" style="width: 35rem;">
+      <% if post.images.present? %>
+          <%= image_tag post.images.first, class:'card-img-top rounded' %>
+          <%# empieza comentario %>
+
+              <div class="card-body glass">
+                  <p><%= post.content %></p>
+              </div>
+              <div class="card-scrollable-comments scrollbar-danger p-1 glass" style="max-height: 150px; overflow-y: auto;">
+                  <% post.comments.each do |comment| %>
+                  <div class="comment p-1 m-2">
+                      <p class="comment-content text-dark"> 
+                     
+                      <div class="badge bg-primary text-wrap" style="width: 16rem;">
+                            <%= comment.content %>                        
+                        </div>
+                      
+                      
+                      <p class="comment-info text-secondary" style="font-size: 12px;">
+                           Autor: <%=  image_tag comment.user.avatar  , class:'rounded-circle', height: "40px", width: "40px" %> 
+                      
+                  </div>
+                  <% end %>
+              </div>
+              <div class="card-comment-form glass">
+                  <%= form_with(model: [post, Comment.new], url: comments_path, local: true) do |form| %> <%= form.hidden_field :post_id, value: post.id %>
+                  <div class="field px-3 py-2">
+                      <%= form.text_area :content, rows: 2, style: "resize: none;", class: "form-control p-1 ", placeholder: "Escribe tu comentario" %>
+                  </div>
+                  <div class="text-center">
+                      <%= form.submit "Comentar", class:"btn btn-primary btn-sm rounded-pill shadow mb-2" %>
+                  </div>
+                  <% end %>
+              </div>
+               
+
+
+          <%# termina comentario %>
+        <% end %>
+    </div>
+</div>

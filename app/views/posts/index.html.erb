@@ -1,0 +1,25 @@
+ 
+ <div class="container text-center">
+  
+  <div class="row">
+    <div class="col-md-5 offset-md-3">
+    <div id="posts"  >
+      <% @posts.each do |post| %>
+        <%= render post %>
+        <p>
+          <%= link_to "Show this post",post , class:'btn btn-secondary' %>
+        </p>
+      <% end %>
+    </div>
+         <% if user_signed_in? %> 
+            <% if current_user.role == 'admin' %> 
+            <%= link_to "New post", new_post_path , class:'btn btn-secondary' %>
+                <% else%>
+                <p>solo el <%= current_user.role %> puede crear una publicaion</p>
+                <% end %>
+        <% else %>
+
+        <% end %>
+    </div>
+  </div>
+</div>
