@@ -15,7 +15,7 @@
             <% if current_user.role == 'admin' %> 
             <%= link_to "New post", new_post_path , class:'btn btn-secondary' %>
                 <% else%>
-                <p>solo el <%= current_user.role %> puede crear una publicaion</p>
+                <input type="hidden" value="<%= current_user.role %> ">
                 <% end %>
         <% else %>
 
