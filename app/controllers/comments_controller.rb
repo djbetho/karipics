@@ -1,7 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[ show ]
   before_action :authenticate_user!, except: %i[ create ]
-  
+
+  before_action only: [:create] do
+    authorize_request(["normal_user"])
+   end
  
 
    # GET /comments or /comments.json
