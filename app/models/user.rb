@@ -7,7 +7,8 @@ class User < ApplicationRecord
   has_many :pets
   has_many :matches
   has_one_attached :avatar
-
   
   enum :role, [:normal_user,:author,:admin]
+
+  validates :avatar, presence: true 
 end
