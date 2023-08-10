@@ -8,4 +8,5 @@
 
 admin=User.create({ name: "Administrador", email: 'ru.bugueno@gmail.com',
                password: '123456', password_confirmation: '123456',
+               avatar:"https://img.freepik.com/vector-premium/perfil-avatar-hombre-icono-redondo_24640-14044.jpg",
                role:2})
