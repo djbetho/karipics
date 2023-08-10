@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+para probar el ususario admin
 
-Things you may want to cover:
 
-* Ruby version
+User.create({ name: "Administrador", 
+                email: "ru.bugueno@gmail.com",
+                password: "123456", password_confirmation: "123456",
+                role:2 })
+ 
+el usuario que comenta se debe crear
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ 
