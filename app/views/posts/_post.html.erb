@@ -19,7 +19,7 @@
                       
                       <p class="comment-info text-secondary" style="font-size: 12px;">
                           
-                        <% if current_user.avatar.exist? %>
+                        <% if current_user.avatar.attached? %>
                            Autor: <%=  image_tag comment.user.avatar  , class:'rounded-circle', height: "40px", width: "40px" %> 
                         <% else%>
                             <img src="https://placehold.co/40x40" alt="Avatar" class='rounded-circle', height="40px", width="40px" >
