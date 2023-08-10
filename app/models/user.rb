@@ -10,5 +10,5 @@ class User < ApplicationRecord
   
   enum :role, [:normal_user,:author,:admin]
 
-  validates :avatar, presence: true 
+  #validates :avatar, presence: true 
 end
