@@ -6,6 +6,7 @@ class CommentsController < ApplicationController
     authorize_request(["normal_user"])
    end
  
+ 
 
    # GET /comments or /comments.json
   def index
