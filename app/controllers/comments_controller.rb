@@ -32,11 +32,14 @@ class CommentsController < ApplicationController
 
 
     @comment = Comment.new(comment_params)
-    @comment.user = current_user
+    if user_signed_in?
+      @comment.user = current_user
+    end
+
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to posts_path, notice: "Comentario a sido creado" }
+        format.html { redirect_to posts_path}
         format.json { render :show, status: :created, location: @comment }
       else
         format.html { redirect_to posts_path, alert: "Error al crear Comentario" }
@@ -49,7 +52,7 @@ class CommentsController < ApplicationController
   def update
     respond_to do |format|
       if @comment.update(comment_params)
-        format.html { redirect_to comment_url(posts_path), notice: "Comment was successfully updated." }
+        format.html { redirect_to comment_url(posts_path) }
         format.json { render :show, status: :ok, location: posts_path }
       else
         format.html { render :edit, status: :unprocessable_entity }

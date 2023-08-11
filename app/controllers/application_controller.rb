@@ -10,10 +10,12 @@ class ApplicationController < ActionController::Base
     end
 
     def authorize_request(kind = nil)
-        unless kind.include?(current_user.role.persisted?)
-            redirect_to posts_path, notice: "Tu no estas autorizado para realizar esta accion."
-
+        if current_user && kind && !kind.include?(current_user.role)
+          redirect_to posts_path, notice: "No estás autorizado para realizar esta acción."
         end
     end
+      
+      
+      
 
 end
